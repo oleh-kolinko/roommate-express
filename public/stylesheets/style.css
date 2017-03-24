@@ -1,0 +1,30 @@
+body {
+  padding: 50px;
+  background-color: #fafafa;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.label{
+  font-weight: normal ;
+}
+
+.error{
+  text-transform: uppercase;
+  text-align: center;
+  color: red;
+}
+.bg {
+  z-index: -1;
+ height: 100%;
+ width: 100%;
+ background-image: url("../images/bg.jpeg");
+ background-size: cover;
+ background-position: bottom;
+ position: absolute;
+ top:0;
+ left: 0;
+}
