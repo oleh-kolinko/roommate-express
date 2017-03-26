@@ -1,7 +1,9 @@
 body {
   padding: 50px;
-  background-color: #fafafa;
+  background-color: #7bb1f7;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 a {
@@ -27,4 +29,47 @@ a {
  position: absolute;
  top:0;
  left: 0;
+}
+.absolute{
+  position: absolute;
+  z-index: -1;
+}
+#cloud1{
+  top: 10px;
+  height: 90px;
+  left:-269px;
+  animation: cloud 40s 15s infinite linear;
+}
+#cloud2{
+  top:70px;
+  height: 110px;
+  left:-381px;
+  animation: cloud 50s 5s infinite linear;
+}
+#cloud3{
+  top: 130px;
+  height: 80px;
+  left:-157px;
+  animation: cloud 40s 20s infinite linear;
+}
+#cloud4{
+  top:180px;
+  height: 130px;
+  left:150px;
+  animation: cloud 30s  infinite linear;
+}
+#house{
+  bottom: 0;
+  left:25%;
+  width: 400px;
+}
+#tree{
+  bottom: 0;
+  left:65%;
+  width: 150px;
+  animation-delay: .3s;
+}
+@keyframes cloud{
+  0%   { left: -30%; }
+  100% { left: 120%; }
 }

@@ -2,7 +2,7 @@
 
 <div class="container">
 
-<div class="row animated fadeInDown" id='hello-card' >
+<div class="row animated fadeInUp" id='hello-card' >
 
     <div class="card-panel z-depth-1 col offset-m3 m6 hoverable ">
         <h2 class="center-align">Hello!</h2>
@@ -17,7 +17,10 @@
                          a house ask him for a token and click on CONNECT otherwise click NEW HOUSE
                        </p>
                         <p class="center-align ">
-                          <a class="waves-effect waves-light btn-large blue"><i class="material-icons left">store</i>New House</a>
+                          <form action="/house" method="post">
+                          <button class="waves-effect waves-light btn-large blue" type='submit'>
+                            <i class="material-icons left">store</i>New House</button>
+                          </form>
                           <a class="waves-effect waves-light btn-large blue" href="#modal1"><i class="material-icons left">language</i>Connect</a>
                         </p>
 
@@ -37,9 +40,10 @@
 <div id="modal1" class="modal">
   <div class="modal-content">
     <h4>HOUSE TOKEN</h4>
-    <p>Ask your friend for a token to get connected and paste it here:</p>
+    <p>Ask your friend for a token to get connected and </p>
     <div class='input-field'>
-      <input type="text" name="token" value="">
+      <input id='token' type="text" name="token" value="">
+      <label for="token">PASTE TOKEN HERE</label>
     </div>
   </div>
   <div class="modal-footer">

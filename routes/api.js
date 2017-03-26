@@ -1,7 +1,9 @@
 const express = require('express');
 const router  = express.Router();
+const ensure = require('connect-ensure-login');
 const Vote = require('../models/vote');
 const Task = require('../models/task');
+const House = require('../models/house');
 
 router.get('/votes', (req, res, next) => {
   Vote.find({},(err,result)=>{
@@ -34,6 +36,7 @@ router.post('/tasks', (req, res, next)=>{
      res.json({message: 'Doc has been created successfully', object: result});
   });
 });
+
 
 
 module.exports = router;
