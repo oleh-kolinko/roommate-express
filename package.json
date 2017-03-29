@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@angular/material": "^2.0.0-beta.2",
     "bcrypt": "^1.0.2",
     "body-parser": "~1.16.0",
     "connect-ensure-login": "^0.1.1",
