@@ -85,7 +85,7 @@ router.post('/login', (req,res,next)=>{
 
 router.get('/logout', (req,res,next)=>{
   req.logout();
-  res.redirect('/');
+  res.redirect('/login');
 });
 
 router.get('/loggedin', (req,res,next)=>{

@@ -4,10 +4,7 @@ const ensure = require('connect-ensure-login');
 const House = require('../models/house');
 const User = require('../models/user');
 const mongoose = require('mongoose');
-/* GET home page. */
-router.get('/', ensure.ensureLoggedIn(),(req, res, next) => {
-  res.send('to angular');
-});
+
 router.get('/login', (req, res, next) => {
   res.render('index',{
     errorLogin: '',
