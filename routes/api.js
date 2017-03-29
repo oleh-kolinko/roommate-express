@@ -30,6 +30,7 @@ router.put('/votes',(req, res, next)=>{
 
     console.log(result);
     result.options[+i].votes ++ ;
+    result.totalVotes ++ ;
     result.votedUsers.push(userId);
     console.log(result);
     result.save( (err )=>{

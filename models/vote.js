@@ -5,6 +5,7 @@ const voteSchema = new Schema({
   name: {type: String, required: [true, 'The name is required']},
   category: String,
   votedUsers: {type: [String] , default: []},
+  totalVotes: {type: Number, default: 0},
   options: [{
     name: String,
     votes: {type: Number, default: 0},
