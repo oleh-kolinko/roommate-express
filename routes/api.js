@@ -42,6 +42,10 @@ router.put('/votes',(req, res, next)=>{
   });
 });
 
+router.delete('/votes',(req,res,next)=>{
+  
+});
+
 router.get('/tasks', (req, res, next) => {
   Task.find({}).sort({date: 1}).exec((err,result)=>{
     if(err) return  res.json(err);
