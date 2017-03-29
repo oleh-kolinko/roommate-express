@@ -6,7 +6,7 @@ const Task = require('../models/task');
 const House = require('../models/house');
 
 router.get('/votes', (req, res, next) => {
-  Vote.find({},(err,result)=>{
+  Vote.find({}).sort({createdAt: -1}).exec((err,result)=>{
     if(err) return  res.json(err);
 
     res.json(result);
@@ -20,9 +20,29 @@ router.post('/votes', (req, res, next)=>{
      res.json({message: 'Doc has been created successfully', object: result});
   });
 });
+router.put('/votes',(req, res, next)=>{
+  const id = req.body.id;
+  const i = req.body.i;
+  const userId = req.body.userId;
+
+  Vote.findById(id, (err,result)=>{
+    if(err) return res.json(err);
+
+    console.log(result);
+    result.options[+i].votes ++ ;
+    result.votedUsers.push(userId);
+    console.log(result);
+    result.save( (err )=>{
+      if(err) return res.json(err);
+
+      res.json({message: 'Doc has been updated', object: result});
+
+    });
+  });
+});
 
 router.get('/tasks', (req, res, next) => {
-  Task.find({},(err,result)=>{
+  Task.find({}).sort({date: 1}).exec((err,result)=>{
     if(err) return  res.json(err);
 
     res.json(result);

@@ -1,64 +1,62 @@
 <!-- House Registration/Connect form -->
+<div class='bg'></div>
 
 <div class="container">
 
 <div class="row animated fadeInUp" id='hello-card' >
 
-    <div class="card-panel z-depth-1 col offset-m3 m6 hoverable ">
-        <h2 class="center-align">Hello!</h2>
+    <div class="opacity card-panel z-depth-1 col  m6 hoverable ">
+        <h2 class="center-align">Hello <%= user.username %>!</h2>
 
         <div class="row" id='hello-row' hidden="true">
-            <form class="col s12">
+            <div class="col s12">
                 <div class="row">
                     <div class="col m12">
-
+                      <div class='error'>
+                        <% if(errorMessage.length > 0) {%>
+                          <%=errorMessage %>
+                        <%}%>
+                      </div>
                       <p class="center-align ">
                         First time here? <br>If your roommate already created
                          a house ask him for a token and click on CONNECT otherwise click NEW HOUSE
                        </p>
+                       <form action="/house" method="post" >
                         <p class="center-align ">
-                          <form action="/house" method="post">
-                          <button class="waves-effect waves-light btn-large blue" type='submit'>
-                            <i class="material-icons left">store</i>New House</button>
-                          </form>
-                          <a class="waves-effect waves-light btn-large blue" href="#modal1"><i class="material-icons left">language</i>Connect</a>
+                            <button type='submit' id='new-house-button' class="waves-effect waves-light btn-large blue">
+                              <i class="material-icons left">store</i>New House</button>
+
+
+                          <a id='connect-house-button' class="waves-effect waves-light btn-large blue" href="#modal1"><i class="material-icons left">language</i>Connect</a>
                         </p>
+                      </form>
 
                         <p class="center-align ">
                           <a class="waves-effect waves-light btn pink" href='/logout'>Logout</a>
                         </p>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>
 </div>
 
-<div class='bg'></div>
 
-<div id="modal1" class="modal">
-  <div class="modal-content">
-    <h4>HOUSE TOKEN</h4>
-    <p>Ask your friend for a token to get connected and </p>
-    <div class='input-field'>
-      <input id='token' type="text" name="token" value="">
-      <label for="token">PASTE TOKEN HERE</label>
+<form action="/house/connect" method='post'>
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+
+      <h4>HOUSE TOKEN</h4>
+      <p>Ask your friend for a token to get connected and </p>
+      <div class='input-field'>
+        <input id='token' type="text" name="token" value="">
+        <label for="token">PASTE TOKEN HERE</label>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button  type='submit' class="modal-action modal-close waves-effect waves-green btn-flat">CONNECT</button>
     </div>
   </div>
-  <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CONNECT</a>
-  </div>
-</div>
+</form>
 <!-- House Registration/Connect form -->
-<script type="text/javascript">
-$(document).ready(function(){
-
-  setTimeout(()=>{
-    $('#hello-row').slideDown(1000);
-  },1500)
-
-  // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-  $('.modal').modal();
-});
-</script>
