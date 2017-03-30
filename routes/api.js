@@ -4,6 +4,7 @@ const ensure = require('connect-ensure-login');
 const Vote = require('../models/vote');
 const Task = require('../models/task');
 const House = require('../models/house');
+const User = require('../models/user');
 
 router.get('/votes', (req, res, next) => {
 
@@ -73,4 +74,12 @@ router.patch('/tasks',(req,res,next)=>{
   });
 });
 
+router.patch('/roommates', (req, res, next) => {
+  const houseid = req.body.id;
+  User.find({house: houseid}).sort({createdAt: -1}).exec((err,result)=>{
+    if(err) return  res.json(err);
+
+    res.json(result);
+  });
+});
 module.exports = router;
