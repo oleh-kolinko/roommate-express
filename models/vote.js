@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const voteSchema = new Schema({
   name: {type: String, required: [true, 'The name is required']},
   category: String,
+  house: String,
   votedUsers: {type: [String] , default: []},
   totalVotes: {type: Number, default: 0},
   options: [{

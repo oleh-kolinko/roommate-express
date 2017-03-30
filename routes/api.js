@@ -6,15 +6,18 @@ const Task = require('../models/task');
 const House = require('../models/house');
 
 router.get('/votes', (req, res, next) => {
-  Vote.find({}).sort({createdAt: -1}).exec((err,result)=>{
+
+  Vote.find({house: req.user.house}).sort({createdAt: -1}).exec((err,result)=>{
     if(err) return  res.json(err);
 
     res.json(result);
   });
 });
 
+
 router.post('/votes', (req, res, next)=>{
   const newDoc = new Vote(req.body);
+  newDoc.house = req.user.house;
   newDoc.save( (err,result)=>{
     if(err) return res.json(err);
      res.json({message: 'Doc has been created successfully', object: result});
@@ -42,12 +45,8 @@ router.put('/votes',(req, res, next)=>{
   });
 });
 
-router.delete('/votes',(req,res,next)=>{
-  
-});
-
 router.get('/tasks', (req, res, next) => {
-  Task.find({}).sort({date: 1}).exec((err,result)=>{
+  Task.find({house: req.user.house}).sort({date: 1}).exec((err,result)=>{
     if(err) return  res.json(err);
 
     res.json(result);
@@ -56,12 +55,22 @@ router.get('/tasks', (req, res, next) => {
 
 router.post('/tasks', (req, res, next)=>{
   const newDoc = new Task(req.body);
+  newDoc.house = req.user.house;
+
   newDoc.save( (err,result)=>{
     if(err) return res.json(err);
      res.json({message: 'Doc has been created successfully', object: result});
   });
 });
 
-
+router.patch('/tasks',(req,res,next)=>{
+  const id = req.body.id;
+  console.log(id);
+  console.log(req.body);
+  Task.findByIdAndRemove(id, (err,result)=>{
+    if(err) return  res.json(err);
+    res.json('Deleted');
+  });
+});
 
 module.exports = router;

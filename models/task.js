@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const taskSchema = new Schema({
   name: {type: String, required: [true, 'The name is required']},
   //  description: String,
+  house: String,
   category: String,
   repeat: String,
   date: Date,
