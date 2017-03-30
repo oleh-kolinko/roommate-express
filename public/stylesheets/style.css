@@ -84,3 +84,6 @@ form{
   0%   { left: -30%; }
   100% { left: 120%; }
 }
+#connect-house-button,#new-house-button{
+  margin-top: 10px;
+}
