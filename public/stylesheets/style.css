@@ -87,3 +87,9 @@ form{
 #connect-house-button,#new-house-button{
   margin-top: 10px;
 }
+.head{
+  color: white;
+  border-radius: 15px;
+  background-color: rgba(0,0,0, 0.7);
+  padding: 15px;
+}
