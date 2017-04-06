@@ -5,7 +5,7 @@ const User = require('../models/user.js');
 const users =[
   {
     username: 'Oleh',
-    img: 'https://lh3.googleusercontent.com/-y9vU3BHc-xw/AAAAAAAAAAI/AAAAAAAAjgY/fb_G5jN3JjA/s640/photo.jpg',
+    img: 'https://pbs.twimg.com/profile_images/569701450985398272/j3mFgFn9.jpeg',
     password: '$2a$10$VkK9nbvT3DdoIuclpvtLFOBx5Du4IHSA8ttCmA3rk3OvyQpSlXFN.'
   },
   {
