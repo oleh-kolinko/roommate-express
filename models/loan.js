@@ -3,9 +3,12 @@ const Schema = mongoose.Schema;
 
 const loanSchema = new Schema({
   name: {type: String, required: [true, 'The name is required']},
-  amount
+  cost: {type: Number, default: 0},
+  payerId: String,
+  receiverId: String,
+
 });
-loanSchema.set('timestamps', true);
+// loanSchema.set('timestamps', true);
 
 const Loan = mongoose.model('Loan', loanSchema);
 
